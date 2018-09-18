@@ -56,6 +56,23 @@ public class CardAdapter extends ArrayAdapter<UserData> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.card, null);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
+        } else {
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
+
+        final UserData item = getItem(position);
+
+        if (item != null) {
+//            set data
+            viewHolder.titleTextView.setText(item.title);
+            viewHolder.contentTextView.setText(item.content);
+            viewHolder.likeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    item.likeNum++;
+                    viewHolder.likeTextView.setText(String.valueOf(item.likeNum));
+                }
+            });
         }
 
         return convertView;
