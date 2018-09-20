@@ -59,7 +59,7 @@ public class CustomAdapter extends ArrayAdapter<UserData> {
 
         viewHolder.titleTextView.setText(userData.getTitle());
         viewHolder.contentTextView.setText(userData.getContent());
-        viewHolder.likeTextView.setText(userData.getLikeNum());
+        viewHolder.likeTextView.setText(String.valueOf(userData.getLikeNum()));
         viewHolder.likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

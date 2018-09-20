@@ -41,6 +41,13 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.OnL
         reference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                UserData userData = dataSnapshot.getValue(UserData.class);
+                mCustomAdapter.add(userData);
+                mCustomAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 UserData result = dataSnapshot.getValue(UserData.class);
 
                 if (result == null) return;
@@ -51,11 +58,6 @@ public class MainActivity extends AppCompatActivity implements CustomAdapter.OnL
 
                 userData.setLikeNum(result.getLikeNum());
                 mCustomAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
             }
 
             @Override
