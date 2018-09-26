@@ -30,6 +30,7 @@ public class AddActivity extends AppCompatActivity {
 
 
         mFocusView = (RelativeLayout) findViewById(R.id.relative_layout);
+
     }
 
     public void save(View v) {
@@ -37,6 +38,7 @@ public class AddActivity extends AppCompatActivity {
         String context = contentEditText.getText().toString();
         String key = reference.push().getKey();
 
+//    引数のUserDataの内容をデータベースに送る。
         UserData userData = new UserData(key, title, context, 0);
 
         reference.child(key).setValue(userData).addOnSuccessListener(new OnSuccessListener<Void>() {

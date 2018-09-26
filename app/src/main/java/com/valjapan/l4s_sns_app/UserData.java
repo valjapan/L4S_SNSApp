@@ -1,5 +1,10 @@
 package com.valjapan.l4s_sns_app;
 
+/**
+ * 1つ1つの"UserDataに対応するクラスを作成する。"
+ * 基本的な変数とコンストラクタ、ゲッター、セッターを用意する。
+ */
+
 public class UserData {
     public String title;
     public String content;
